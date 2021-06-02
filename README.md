@@ -20,3 +20,41 @@ Build an interview calendar API that manages availability time slots between can
 - There's no need to have a sophisticated persisting mechanism implemented
 - You can use public nuget packages
 - All API are public, no authentication mechanism required
+
+## Endpoints
+
+### Define person availability
+
+> POST /calendar/availability
+```
+{
+    "name": "{person name}",
+    "role": "{person role}"
+    "slots": [
+        {
+            "dateStart": "{start date}",
+            "dateEnd": "{end date}"
+        },
+        {
+            "dateStart": "{start date}",
+            "dateEnd": "{end date}"
+        }
+    ]
+}
+```
+
+### Get availability slots
+
+> GET /calendar/availability/{person c}?interviewers={person a}&interviewers={person b}
+```
+[
+    {
+        "dateStart": "{start date}",
+        "dateEnd": "{end date}"
+    },
+    {
+        "dateStart": "{start date}",
+        "dateEnd": "{end date}"
+    }
+]
+```
